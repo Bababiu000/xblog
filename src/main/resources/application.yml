@@ -1,0 +1,16 @@
+server:
+  port: 8080
+
+mybatis-plus:
+  # mapper文件路径
+  mapper-locations: classpath*:/mapper/**Mapper.xml
+  configuration:
+    # 打印日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  profiles:
+    active: dev
