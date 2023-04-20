@@ -47,7 +47,6 @@ public class LoginInterceptor implements HandlerInterceptor {
         if (token == null || token.isEmpty()) {
             log.info( "token为空，请求被拦截" );
             response.setStatus(HttpStatus.UNAUTHORIZED.value());
-
             return false;
         }
 

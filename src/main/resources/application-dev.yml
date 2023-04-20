@@ -4,3 +4,10 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: colt1911
+
+file:
+  save:
+    location: D:\\Code\\Vue_SpringBoot_Project\\xblog\\src\\main\\resources\\public\\
+  request:
+    path: /file/**
+    url: http://localhost:8080/file/

@@ -32,7 +32,8 @@
     <select id="list" resultType="com.example.xblog.dto.ArticleDTO">
         select a.*,
         u.username username,
-        c.title category_title
+        c.title category_title,
+        if(a.update_time > a.create_time, a.update_time, a.create_time) max_time
         from article a
         left join category c on a.category_id = c.id
         left join user u on a.user_id = u.id
@@ -47,7 +48,7 @@
                 and c.id = #{params.categoryId}
             </if>
         </where>
-        order by a.id
+        order by max_time desc
     </select>
 
 </mapper>
