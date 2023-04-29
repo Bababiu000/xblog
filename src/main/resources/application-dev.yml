@@ -7,7 +7,7 @@ spring:
 
 file:
   save:
-    location: D:\\Code\\Vue_SpringBoot_Project\\xblog\\src\\main\\resources\\public\\
+    location: D:\\Code\\Vue_SpringBoot_Project\\XBlog\\xblog\\src\\main\\resources\\public\\
   request:
     path: /file/**
     url: http://localhost:8080/file/

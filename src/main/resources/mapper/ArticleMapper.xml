@@ -33,10 +33,13 @@
         select a.*,
         u.username username,
         c.title category_title,
+        group_concat(t.name separator ', ') tags,
         if(a.update_time > a.create_time, a.update_time, a.create_time) max_time
         from article a
         left join category c on a.category_id = c.id
         left join user u on a.user_id = u.id
+        left join article_tag a_t on a.id = a_t.article_id
+        left join tag t on a_t.tag_id = t.id
         <where>
             <if test="params.title != null and params.title !=''">
                 and a.title like concat('%',#{params.title},'%')
@@ -47,7 +50,11 @@
             <if test="params.categoryId != null and params.categoryId !=''">
                 and c.id = #{params.categoryId}
             </if>
+            <if test="params.tagId != null and params.tagId !=''">
+                and t.id = #{params.tagId}
+            </if>
         </where>
+        group by a.id
         order by max_time desc
     </select>
 

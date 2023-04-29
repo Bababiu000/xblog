@@ -94,7 +94,8 @@ public class UserController {
 
             if(userInfo != null) {
                 //超级管理员
-                if (RoleType.ROLE_ADMIN.getCode().equals(user.getRoleType()) && user.getRoleType().equals(userInfo.getRoleType())) {
+                if (RoleType.ROLE_ADMIN.getCode().equals(user.getRoleType()) && user.getRoleType().equals(userInfo.getRoleType())
+                        || RoleType.ROLE_USER.getCode().equals(user.getRoleType()) && user.getId().equals(userInfo.getId())) {
                     userService.saveOrUpdate(user);
                 }else{
                     throw new ServiceException("用户权限与数据库不一致");

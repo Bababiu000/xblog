@@ -24,6 +24,11 @@ public class Utils {
             "/category/delBatch",
             "/category/save",
 
+            "/tag/delBatch",
+            "/tag/save",
+
+            "/article-tag/save",
+
             "/user/delBatch",
             "/user/save",
 

@@ -16,4 +16,7 @@ public class ArticleDTO extends Article {
 
     @ApiModelProperty("栏目名称")
     private String categoryTitle;
+
+    @ApiModelProperty("标签")
+    private String tags;
 }

@@ -2,25 +2,20 @@ package com.example.xblog.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.xblog.common.Result;
 import com.example.xblog.dto.ArticleDTO;
 import com.example.xblog.dto.PagedQuery;
 import com.example.xblog.entity.Article;
-import com.example.xblog.entity.Category;
-import com.example.xblog.entity.User;
 import com.example.xblog.enums.ResultType;
 import com.example.xblog.exception.ServiceException;
 import com.example.xblog.service.ArticleService;
 import com.example.xblog.service.CategoryService;
 import com.example.xblog.service.UserService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -65,7 +60,7 @@ public class ArticleController {
     @PostMapping("/save")
     public Result saveOrMod(@Validated @RequestBody Article article) {
         articleService.saveOrUpdate(article);
-        return Result.success();
+        return Result.success(article.getId());
     }
 
     // 删除
