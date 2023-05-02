@@ -10,7 +10,7 @@ public enum ResultType{
     SUCCESS(200, "操作成功"),
     ERROR(500, "操作失败"),
     VALIDATE_FAILED(404, "参数检验失败"),
-    UNAUTHORIZED(401, "暂未登录或token已过期"),
+    UNAUTHORIZED(401, "请登录！"),
     FORBIDDEN(403, "没有相关权限");
 
     /** 定义状态码 */

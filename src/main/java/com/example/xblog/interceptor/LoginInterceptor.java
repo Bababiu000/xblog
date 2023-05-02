@@ -10,7 +10,6 @@ import com.example.xblog.utils.Utils;
 import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -46,8 +45,9 @@ public class LoginInterceptor implements HandlerInterceptor {
         log.info("登录校验开始，token：{}", token);
         if (token == null || token.isEmpty()) {
             log.info( "token为空，请求被拦截" );
-            response.setStatus(HttpStatus.UNAUTHORIZED.value());
-            return false;
+//            response.setStatus(HttpStatus.UNAUTHORIZED.value());
+//            return false;
+            throw new ServiceException(ResultType.UNAUTHORIZED.getCode(), ResultType.UNAUTHORIZED.getMessage());
         }
 
         Claims claims = JwtUtils.verifyJwt(token);

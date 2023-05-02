@@ -31,7 +31,10 @@ public class SpringMvcConfig implements WebMvcConfigurer {
                         "/user/{username}",
                         "/user/save",
                         "/article/list",
-                        "/article/detail",
+                        "/article/detail/**",
+                        "/tag/all",
+                        "/category/all",
+                        "/message/list",
                         "/file/**",
 
                         "/swagger-ui/**",
